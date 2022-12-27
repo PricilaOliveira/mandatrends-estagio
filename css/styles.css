@@ -126,7 +126,7 @@ header .texts h2 {
 header .texts h2::after {
     content: "";
     right:  -30px;
-    top: -30px;
+    top: -25px;
     width: 25px;
     height: 25px;
     background-repeat: no-repeat;
@@ -303,8 +303,14 @@ footer div {
 
 @media (max-width: 790px) {
 
-    header::before {
+    header::after {
         display: none;
+    }
+
+    header::before {
+        left: 30%;
+        height: 160px;
+        bottom: -49px;
     }
 
     header .texts h2 {
@@ -312,7 +318,7 @@ footer div {
     }
 
     .image img {
-        width: 70%;
+        width: 60%;
         max-width: unset;
     }
 
@@ -356,5 +362,11 @@ footer div {
 
     .copyright {
         font-size: .8rem;
+    }
+}
+
+@media (max-width: 550px) {
+    header::before {
+    display: none;
     }
 }
