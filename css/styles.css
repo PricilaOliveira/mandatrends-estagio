@@ -63,7 +63,7 @@ header .texts h2,h3 {
 }
 
 header .texts h2 {
-    width: 220px;
+    max-width: 220px;
     font-size: 1.5rem;
 }
 
@@ -108,7 +108,7 @@ header::after {
 
 header::before {
     content: "";
-    left:  300px;
+    left:  40%;
     bottom: -62px;
     width: 170px;
     height: 200px;
@@ -157,12 +157,37 @@ header .texts h3::after{
 
 .layers {
     margin-top: 30px;
-    border: 1px solid red;
-
+    margin-bottom: 30px;
+    padding: 10px 60px;
     display: grid;
-    gap: 30px;
-    grid-template-columns: auto auto;
+    gap: 40px 20px;
+
+    grid-template-columns: 50% 50%;
     grid-template-rows: auto auto;
+
+}
+
+.layer {
+    cursor: pointer;
+    position: relative;
+}
+
+.layer::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    width: 330px;
+    height: 8px;
+    background: linear-gradient(90deg, rgba(255,7,78,1) 0%, rgba(220,73,249,1) 100%);
+}
+
+.layer.layer-2::before {
+    background: linear-gradient(90deg, rgba(7,83,255,1) 0%, rgba(73,195,249,1) 100%);
+}
+
+.layer.layer-3::before {
+    background: linear-gradient(90deg, rgba(7,255,206,1) 0%, rgba(73,249,99,1) 100%);
 }
 
 .layer-1 {
@@ -171,29 +196,40 @@ header .texts h3::after{
 }
 
 .layers h3 {
+    margin-top: 16px;
     text-align: left;
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 .layers p {
     font-size: 1.2rem;
+    margin-top: 10px;
     color: var(--dark-gray-texts);
 }
 
-.layers span {
+.layers .font {
     font-size: 0.9rem;
     font-weight: 600;
     font-style: italic;
+    margin-top: 0;
+    padding: 20px 0px;
     color: var(--gray-texts)
 }
 
 .layers img {
     width: 100%;
+
+    position: relative;
+}
+
+.layer-2 h3, .layer-3 h3 {
+    max-width: 330px;
 }
 
 .layer-2 img, .layer-3 img {
-    max-height: 280px;
+    height: 280px;
+    width: 600px;
 }
 
 /* Footer */
@@ -254,6 +290,8 @@ footer div {
     justify-content: center;
     color: var(--dark-gray-texts);
     font-size: 1rem;
+    padding: 30px;
+    text-align: center;
 }
 
 .copyright a {
@@ -261,4 +299,62 @@ footer div {
 }
 .copyright a:hover {
     font-weight: 500;
+}
+
+@media (max-width: 790px) {
+
+    header::before {
+        display: none;
+    }
+
+    header .texts h2 {
+        font-size: 1rem;
+    }
+
+    .image img {
+        width: 70%;
+        max-width: unset;
+    }
+
+    .layers {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+
+    .layers h3 {
+        font-size: 1.1rem;
+    }
+
+    header .texts h3 {
+        font-size: .8rem;
+    }
+
+    .layer-1 {
+        grid-column-end:unset;
+    }
+
+    .layer-2 img, .layer-3 img {
+        height: unset;
+    }
+
+    .layer::before {
+        width: 150px;
+    }
+
+    .content-signs .styled-font {
+        width: 100px;
+        font-size: 1.4rem;
+    }
+
+    .content-signs .name {
+        font-size: 1.6rem;
+    }
+
+    footer hr {
+    margin: 0px 20px;
+    }
+
+    .copyright {
+        font-size: .8rem;
+    }
 }
